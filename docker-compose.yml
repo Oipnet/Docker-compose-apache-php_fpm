@@ -1,0 +1,34 @@
+web:
+    build: apache
+    volumes:
+        - /var/www:/var/www
+    ports:
+        - 80:80
+    links:
+        - php:php
+              
+#web:
+#    build: nginx
+#    volumes:
+#        - /var/www:/var/www
+#    ports:
+#        - 80:80
+#    links:
+#        - php:php
+        
+php:
+    build: php-fpm
+    volumes:
+        - /var/www:/var/www
+    ports:
+        - 9000:9000
+    links :
+        - db:db
+        
+db:
+    image: mysql
+    volumes:
+        - /var/mysql:/var/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+
