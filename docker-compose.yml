@@ -1,5 +1,5 @@
 #web:
-#    build: nginx
+#    build: apache
 #    volumes:
 #        - /var/www:/var/www
 #    ports:
