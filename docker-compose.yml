@@ -1,12 +1,3 @@
-web:
-    build: apache
-    volumes:
-        - /var/www:/var/www
-    ports:
-        - 80:80
-    links:
-        - php:php
-              
 #web:
 #    build: nginx
 #    volumes:
@@ -15,7 +6,18 @@ web:
 #        - 80:80
 #    links:
 #        - php:php
-        
+#    environment:
+#        - VIRTUALHOST=local.dev
+
+              
+web:
+    build: nginx
+    volumes:
+        - /var/www:/var/www
+    ports:
+        - 80:80
+    links:
+        - php:php       
 php:
     build: php-fpm
     volumes:

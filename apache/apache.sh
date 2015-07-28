@@ -8,4 +8,6 @@ a2enconf servername
 a2ensite 000-default
 a2ensite 999-host
 
+chown -R www-data:www-data /var/www
+
 /usr/sbin/apache2ctl -D FOREGROUND
