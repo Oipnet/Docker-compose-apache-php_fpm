@@ -4,13 +4,13 @@ apache:
     volumes:
         - /var/www:/var/www
     ports:
-        - 8080:80
+        - 90:80
     links:
         - php:php
     environment:
-        - VIRTUALHOST=local.dev
+        - VIRTUALHOST=puzzle3d.dev
 
-              
+
 nginx:
     build: nginx
     restart: always
@@ -38,7 +38,7 @@ db:
         - /var/mysql:/var/mysql
     environment:
         - MYSQL_ROOT_PASSWORD=root
-
+    
 dockerUi:
     image: dockerui/dockerui
     restart: always
